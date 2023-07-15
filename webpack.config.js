@@ -1,5 +1,6 @@
 const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
+const MiniCssExreactPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -26,11 +27,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExreactPlugin.loader, "css-loader"],
       },
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [MiniCssExreactPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         // most of browser is unnecessary to user babel
@@ -46,5 +47,10 @@ module.exports = {
       },
     ],
   },
-  plugins: [new TerserPlugin()],
+  plugins: [
+    new TerserPlugin(),
+    new MiniCssExreactPlugin({
+      filename: "style.css",
+    }),
+  ],
 };
