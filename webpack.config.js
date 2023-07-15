@@ -31,6 +31,18 @@ module.exports = {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
+      {
+        // most of browser is unnecessary to user babel
+        test: /\.js$/,
+        exclude: "/node_modules/",
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/env"],
+            plugins: ["@babel/plugin-proposal-class-properties"], // this experimental JS feature has been already installed all modern browser, so it's no need to add this further
+          },
+        },
+      },
     ],
   },
 };
