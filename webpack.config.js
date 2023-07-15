@@ -12,11 +12,24 @@ module.exports = {
     rules: [
       {
         test: /\.(png|jpg|jpeg)/,
-        type: "asset/resource",
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 3 * 1024, // 3 Kilobytes
+          },
+        },
+      },
+      {
+        test: /.txt$/,
+        type: "asset/source",
       },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },

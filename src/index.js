@@ -1,3 +1,2 @@
 import "./css/style.css";
-import { addImage } from "./js/webpackEntry.js";
-addImage();
+import Entry from "./js/webpackEntry.js";

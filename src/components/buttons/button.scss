@@ -1,0 +1,15 @@
+.btn {
+  font-size: 20px;
+  padding: 7px 15px;
+  background-color: green;
+  color: #fff;
+  outline: none;
+
+  &__text {
+    color: red;
+    font-size: 18px;
+    border: 1px solid cornflowerblue;
+  }
+}
+
+
