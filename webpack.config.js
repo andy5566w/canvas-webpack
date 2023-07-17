@@ -1,6 +1,7 @@
 const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExreactPlugin = require("mini-css-extract-plugin");
+// const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -8,6 +9,10 @@ module.exports = {
     path: path.resolve(__dirname, "./dist"),
     filename: "bundle.[contenthash].js",
     publicPath: "dist/", // webpack 4+ is unnecessary to add this fields.
+    clean: {
+      dry: true, // it will show file detail. ex: which file would be remove.
+      keep: /\.css$/,
+    },
   },
   mode: "production",
   module: {
@@ -52,5 +57,6 @@ module.exports = {
     new MiniCssExreactPlugin({
       filename: "style.[contenthash].css",
     }),
+    // new CleanWebpackPlugin(),
   ],
 };
