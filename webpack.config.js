@@ -6,7 +6,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "bundle.js",
+    filename: "bundle.[contenthash].js",
     publicPath: "dist/", // webpack 4+ is unnecessary to add this fields.
   },
   mode: "production",
@@ -50,7 +50,7 @@ module.exports = {
   plugins: [
     new TerserPlugin(),
     new MiniCssExreactPlugin({
-      filename: "style.css",
+      filename: "style.[contenthash].css",
     }),
   ],
 };
