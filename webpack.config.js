@@ -34,7 +34,7 @@ module.exports = {
         use: [MiniCssExreactPlugin.loader, "css-loader", "sass-loader"],
       },
       {
-        // most of browser is unnecessary to user babel
+        // most of browser is unnecessary to use babel
         test: /\.js$/,
         exclude: "/node_modules/",
         use: {
